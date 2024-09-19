@@ -1,0 +1,71 @@
+{
+  "Application": {
+    "Name": "Microsoft Word",
+    "Version": "1.0.0",
+    "Environment": "Development"
+  },
+  "Database": {
+    "ConnectionString": "Server=localhost;Database=MicrosoftWordDB;User Id=worduser;Password=wordpass;",
+    "Provider": "SqlServer"
+  },
+  "Authentication": {
+    "JwtSecret": "your-256-bit-secret",
+    "JwtIssuer": "https://api.microsoftword.com",
+    "JwtAudience": "https://microsoftword.com",
+    "JwtExpirationInMinutes": 60
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "CorsSettings": {
+    "AllowedOrigins": [
+      "https://microsoftword.com",
+      "https://www.microsoftword.com"
+    ]
+  },
+  "FileStorage": {
+    "Provider": "AzureBlob",
+    "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=wordstorageaccount;AccountKey=your-account-key;EndpointSuffix=core.windows.net",
+    "ContainerName": "documents"
+  },
+  "Cache": {
+    "Provider": "Redis",
+    "ConnectionString": "localhost:6379"
+  },
+  "EmailSettings": {
+    "SmtpServer": "smtp.office365.com",
+    "SmtpPort": 587,
+    "SmtpUsername": "noreply@microsoftword.com",
+    "SmtpPassword": "your-smtp-password",
+    "SenderEmail": "noreply@microsoftword.com",
+    "SenderName": "Microsoft Word"
+  },
+  "CollaborationSettings": {
+    "MaxCollaboratorsPerDocument": 10,
+    "CollaborationHubUrl": "/collaborationHub"
+  },
+  "FeatureFlags": {
+    "EnableRealTimeCollaboration": true,
+    "EnableVersionHistory": true,
+    "EnableCloudStorage": true
+  },
+  "Performance": {
+    "MaxConcurrentUsers": 1000,
+    "DocumentCacheDurationMinutes": 15,
+    "EnableResponseCompression": true
+  },
+  "Security": {
+    "EnableXssProtection": true,
+    "EnableHsts": true,
+    "DataEncryptionKey": "your-32-byte-encryption-key"
+  },
+  "ExternalServices": {
+    "SpellCheckApiUrl": "https://api.spellchecker.com",
+    "TranslationApiUrl": "https://api.translator.com"
+  }
+}
