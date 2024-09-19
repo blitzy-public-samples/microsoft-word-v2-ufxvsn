@@ -1,0 +1,17 @@
+// Import required dependencies
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+// Render the main App component to the DOM
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// Human tasks:
+// TODO: Implement error boundary for the entire application
+// TODO: Set up performance monitoring and analytics
+// TODO: Configure service worker for offline capabilities
