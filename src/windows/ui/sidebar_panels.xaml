@@ -1,0 +1,54 @@
+<UserControl x:Class="MicrosoftWord.Windows.UI.SidebarPanels"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MicrosoftWord.Windows.UI"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="200">
+    
+    <!-- Main grid layout for the sidebar panels -->
+    <Grid>
+        <!-- Tab control for different sidebar panels -->
+        <TabControl TabStripPlacement="Left">
+            
+            <!-- Navigation panel -->
+            <TabItem Header="Navigation">
+                <!-- Document structure navigation -->
+                <TreeView ItemsSource="{Binding DocumentStructure}"/>
+            </TabItem>
+            
+            <!-- Styles panel -->
+            <TabItem Header="Styles">
+                <!-- List of available styles -->
+                <ListBox ItemsSource="{Binding AvailableStyles}"
+                         SelectedItem="{Binding SelectedStyle, Mode=TwoWay}"/>
+            </TabItem>
+            
+            <!-- Review panel -->
+            <TabItem Header="Review">
+                <StackPanel>
+                    <!-- Review options -->
+                    <Button Content="Track Changes"
+                            Command="{Binding ToggleTrackChangesCommand}"/>
+                    <!-- List of comments and changes -->
+                    <ListBox ItemsSource="{Binding ReviewItems}"/>
+                </StackPanel>
+            </TabItem>
+            
+            <!-- References panel -->
+            <TabItem Header="References">
+                <StackPanel>
+                    <!-- Reference management options -->
+                    <Button Content="Insert Citation"
+                            Command="{Binding InsertCitationCommand}"/>
+                    <Button Content="Manage Sources"
+                            Command="{Binding ManageSourcesCommand}"/>
+                    <!-- List of citations and references -->
+                    <ListBox ItemsSource="{Binding References}"/>
+                </StackPanel>
+            </TabItem>
+            
+        </TabControl>
+    </Grid>
+</UserControl>
