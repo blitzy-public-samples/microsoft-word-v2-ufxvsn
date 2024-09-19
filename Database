@@ -1,0 +1,67 @@
+{
+  "DefaultConnection": {
+    "Provider": "SqlServer",
+    "ConnectionString": "Server=localhost;Database=MicrosoftWordDB;User Id=worduser;Password=wordpass;",
+    "MaxRetryCount": 3,
+    "CommandTimeout": 30,
+    "EnableSensitiveDataLogging": false
+  },
+  "ReadOnlyReplica": {
+    "Provider": "SqlServer",
+    "ConnectionString": "Server=readonly.database.windows.net;Database=MicrosoftWordDB;User Id=readonlyuser;Password=readonlypass;",
+    "MaxRetryCount": 3,
+    "CommandTimeout": 30
+  },
+  "Migrations": {
+    "AutomaticMigrationsEnabled": false,
+    "MigrationsAssembly": "MicrosoftWord.Data"
+  },
+  "ConnectionResiliency": {
+    "MaxRetryCount": 5,
+    "MaxRetryDelay": "00:00:05",
+    "ErrorNumbersToAdd": [4060, 40197, 40501, 40613, 49918, 49919, 49920]
+  },
+  "PoolingSettings": {
+    "MinPoolSize": 5,
+    "MaxPoolSize": 100,
+    "ConnectionLifetime": 300
+  },
+  "DocumentStorage": {
+    "Provider": "AzureCosmosDB",
+    "ConnectionString": "AccountEndpoint=https://wordcosmosdb.documents.azure.com:443/;AccountKey=your-cosmos-db-key;",
+    "DatabaseName": "WordDocuments",
+    "ContainerName": "Documents"
+  },
+  "Caching": {
+    "Provider": "Redis",
+    "ConnectionString": "wordcache.redis.cache.windows.net:6380,password=your-redis-password,ssl=True,abortConnect=False",
+    "InstanceName": "MicrosoftWord_"
+  },
+  "Logging": {
+    "EnableSensitiveDataLogging": false,
+    "EnableDetailedErrors": true,
+    "CommandTimeout": 60
+  },
+  "Sharding": {
+    "Enabled": false,
+    "ShardingKey": "UserId",
+    "NumberOfShards": 4
+  },
+  "Backup": {
+    "AutomaticBackupEnabled": true,
+    "BackupSchedule": "0 2 * * *",
+    "RetentionPeriodDays": 30,
+    "BackupStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=wordbackups;AccountKey=your-backup-storage-key;EndpointSuffix=core.windows.net"
+  },
+  "Security": {
+    "EnableEncryption": true,
+    "EncryptionKey": "your-32-byte-encryption-key",
+    "EnableAuditLogging": true
+  },
+  "Performance": {
+    "EnableQueryCaching": true,
+    "QueryCacheSize": 1000,
+    "EnableBatchingQueries": true,
+    "MaxBatchSize": 100
+  }
+}
