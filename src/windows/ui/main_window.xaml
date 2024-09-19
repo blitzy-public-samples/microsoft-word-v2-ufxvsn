@@ -1,0 +1,54 @@
+<Window x:Class="MicrosoftWord.Windows.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MicrosoftWord.Windows.UI"
+        mc:Ignorable="d"
+        Title="Microsoft Word"
+        Height="768"
+        Width="1024"
+        MinHeight="480"
+        MinWidth="640">
+    
+    <Grid>
+        <!-- Define the main grid layout with four rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Ribbon interface component -->
+        <local:RibbonInterface Grid.Row="0"/>
+
+        <!-- Quick Access Toolbar -->
+        <ToolBar Grid.Row="1">
+            <Button Content="Save"/>
+            <Button Content="Undo"/>
+            <Button Content="Redo"/>
+        </ToolBar>
+
+        <!-- Content area grid -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left sidebar panels -->
+            <local:SidebarPanels Grid.Column="0"/>
+
+            <!-- Main document editing area -->
+            <local:DocumentArea Grid.Column="1"/>
+
+            <!-- Right sidebar panels -->
+            <local:SidebarPanels Grid.Column="2"/>
+        </Grid>
+
+        <!-- Status bar component -->
+        <local:StatusBar Grid.Row="3"/>
+    </Grid>
+</Window>
