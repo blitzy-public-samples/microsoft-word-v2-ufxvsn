@@ -1,0 +1,17 @@
+module.exports = {
+  // Extend the base configurations for React and Jest
+  extends: ['react-app', 'react-app/jest'],
+
+  // Override rules for specific file patterns
+  overrides: [
+    {
+      // Apply these rules to all Storybook story files
+      files: ['**/*.stories.*'],
+      rules: {
+        // Disable the rule that prevents anonymous default exports
+        // This is common in Storybook stories
+        'import/no-anonymous-default-export': 'off'
+      }
+    }
+  ]
+};
