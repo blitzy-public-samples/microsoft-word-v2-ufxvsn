@@ -1,0 +1,133 @@
+/* Main CSS file for styling the web-based Microsoft Word application */
+
+/* Define CSS variables for consistent theming */
+:root {
+  --primary-color: #0078D4;
+  --secondary-color: #106EBE;
+  --background-color: #FFFFFF;
+  --text-color: #333333;
+  --border-color: #E1E1E1;
+  --hover-color: #F3F2F1;
+  --font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 14px;
+  --line-height-base: 1.5;
+}
+
+/* Reset default body styles and apply base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Main app container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Main content area */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Document editing area */
+.document-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: var(--background-color);
+  border-left: 1px solid var(--border-color);
+}
+
+/* Button styles */
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Input field styles */
+.input {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Dropdown styles */
+.dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.dropdown:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Icon styles */
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
