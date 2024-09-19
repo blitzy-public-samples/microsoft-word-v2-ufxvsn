@@ -1,0 +1,80 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information",
+      "Microsoft.EntityFrameworkCore": "Warning"
+    },
+    "Console": {
+      "LogLevel": {
+        "Default": "Information"
+      },
+      "FormatterName": "json",
+      "FormatterOptions": {
+        "SingleLine": true,
+        "IncludeScopes": true,
+        "TimestampFormat": "yyyy-MM-dd HH:mm:ss ",
+        "UseUtcTimestamp": true,
+        "JsonWriterOptions": {
+          "Indented": true
+        }
+      }
+    },
+    "File": {
+      "LogLevel": {
+        "Default": "Warning"
+      },
+      "BasePath": "logs",
+      "FileNameFormat": "word-{Date}.log",
+      "FileSizeLimitBytes": 5242880,
+      "RetainedFileCountLimit": 10,
+      "FormatterName": "json",
+      "FormatterOptions": {
+        "SingleLine": false,
+        "IncludeScopes": true,
+        "TimestampFormat": "yyyy-MM-dd HH:mm:ss ",
+        "UseUtcTimestamp": true,
+        "JsonWriterOptions": {
+          "Indented": true
+        }
+      }
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    },
+    "EventLog": {
+      "LogLevel": {
+        "Microsoft": "Information"
+      }
+    },
+    "AzureAppServicesFile": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "AzureAppServicesBlob": {
+      "LogLevel": {
+        "Microsoft": "Information"
+      }
+    },
+    "FilterRules": [
+      {
+        "Name": "ByExcluding",
+        "Filter": "Microsoft.AspNetCore.Mvc.Infrastructure"
+      },
+      {
+        "Name": "ByIncluding",
+        "Filter": "Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker"
+      }
+    ],
+    "IncludeScopes": true,
+    "ActivityTrackingOptions": {
+      "SpanId": true,
+      "TraceId": true,
+      "ParentId": true
+    }
+  }
+}
