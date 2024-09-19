@@ -1,0 +1,13 @@
+# It is used by tools like Autoprefixer to adjust CSS for supported browsers
+
+# Production environment settings
+production:
+  >0.2%
+  not dead
+  not op_mini all
+
+# Development environment settings
+development:
+  last 1 chrome version
+  last 1 firefox version
+  last 1 safari version
